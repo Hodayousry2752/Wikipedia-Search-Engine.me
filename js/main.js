@@ -3,6 +3,21 @@ let input=document.querySelector('#input');
 let typeParg =document.querySelector('#type');
 let list =document.querySelector('#list');
 
+
+// Debounce function
+    function debounce(func, delay) {
+      let timer;
+      return function() {
+        const context = this;
+        const args = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          func.apply(context, args);
+        }, delay);
+      };
+    }
+
+
 let finalRes;
 const insure =()=>{
     if(input.value===''){
