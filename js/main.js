@@ -16,7 +16,13 @@ let list =document.querySelector('#list');
         }, delay);
       };
     }
+function performSearch() {
+      let searchTerm = input.value;
+      document.getElementById('results').innerText = 'Searching for: ' + searchTerm;
+    }
 
+    const debounceSearch = debounce(performSearch, 300); // Set a delay of 300 milliseconds
+    input.addEventListener('input', debounceSearch);
 
 let finalRes;
 const insure =()=>{
